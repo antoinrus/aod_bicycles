@@ -161,6 +161,17 @@ body {
   color: #4d4959;
   font-size: 13px;
   text-transform: uppercase;
+  position: relative;
+}
+
+.menu__link:nth-child(1)::after, .menu__link:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #4d4959;
 }
 
 .page {
