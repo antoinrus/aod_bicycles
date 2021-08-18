@@ -147,7 +147,17 @@ body {
   top: 35px;
 }
 
+.menu__list {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .menu__link {
+  padding: 0px 35px;
   color: #4d4959;
   font-size: 13px;
   text-transform: uppercase;

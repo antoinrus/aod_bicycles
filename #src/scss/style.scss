@@ -73,9 +73,13 @@ body {
 	}
 	// .menu__list
 	&__list {
+		display: grid;
+		grid-auto-flow: column;
+		justify-content: center;
 	}
 	// .menu__link
 	&__link {
+		padding: 0px 35px;
 		color: #4d4959;
 		font-size: 13px;
 		text-transform: uppercase;
