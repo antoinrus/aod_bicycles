@@ -76,25 +76,34 @@ body {
 		display: grid;
 		grid-auto-flow: column;
 		justify-content: center;
+
+		li {
+			padding: 0px 36px;
+			position: relative;
+
+			&:nth-child(1)::after,
+			&:nth-child(3)::after {
+				content: "";
+				position: absolute;
+				bottom: 6px;
+				right: 0;
+				width: 2px;
+				height: 2px;
+				background-color: #4d4959;
+			}
+			&:nth-child(2) {
+				padding: 0px 110px 0px 36px;
+			}
+			&:nth-child(3) {
+				padding: 0px 36px 0px 110px;
+			}
+		}
 	}
 	// .menu__link
 	&__link {
-		padding: 0px 35px;
 		color: #4d4959;
 		font-size: 13px;
 		text-transform: uppercase;
-		position: relative;
-
-		&:nth-child(1)::after,
-		&:nth-child(3)::after {
-			content: "";
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			width: 2px;
-			height: 2px;
-			background-color: #4d4959;
-		}
 	}
 }
 .page {

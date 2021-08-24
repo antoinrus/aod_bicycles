@@ -156,22 +156,33 @@ body {
           justify-content: center;
 }
 
-.menu__link {
-  padding: 0px 35px;
-  color: #4d4959;
-  font-size: 13px;
-  text-transform: uppercase;
+.menu__list li {
+  padding: 0px 36px;
   position: relative;
 }
 
-.menu__link:nth-child(1)::after, .menu__link:nth-child(3)::after {
+.menu__list li:nth-child(1)::after, .menu__list li:nth-child(3)::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 6px;
   right: 0;
   width: 2px;
   height: 2px;
   background-color: #4d4959;
+}
+
+.menu__list li:nth-child(2) {
+  padding: 0px 110px 0px 36px;
+}
+
+.menu__list li:nth-child(3) {
+  padding: 0px 36px 0px 110px;
+}
+
+.menu__link {
+  color: #4d4959;
+  font-size: 13px;
+  text-transform: uppercase;
 }
 
 .page {
