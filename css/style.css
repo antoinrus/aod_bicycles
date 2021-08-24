@@ -144,7 +144,21 @@ body {
   width: 100%;
   z-index: 50;
   left: 0;
-  top: 35px;
+  top: 65px;
+}
+
+.header__logo {
+  position: relative;
+  top: -55px;
+  left: 50%;
+  width: 94px;
+  height: 85px;
+  -webkit-transform: translateX(-47px);
+          transform: translateX(-47px);
+}
+
+.header__logo img {
+  width: 100%;
 }
 
 .menu__list {
@@ -183,6 +197,12 @@ body {
   color: #4d4959;
   font-size: 13px;
   text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2.6px;
+}
+
+.menu__link:hover {
+  color: #69c3a1;
 }
 
 .page {
@@ -191,6 +211,14 @@ body {
   grid-area: main;
   position: relative;
   z-index: 1;
+}
+
+.top {
+  height: 100vh;
+}
+
+.top__image {
+  height: 100%;
 }
 
 .footer {
