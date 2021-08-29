@@ -224,7 +224,7 @@ body {
 
 .generation {
   background-color: #f7f7f7;
-  margin: 118px 0px 140px 0px;
+  padding: 118px 0px 140px 0px;
 }
 
 .generation__body {
@@ -238,6 +238,29 @@ body {
 
 .generation__title {
   margin: 0px 0px 35px 0px;
+}
+
+.brands {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.brands__img {
+  position: relative;
+  padding: 0px 0px 100% 0px;
+}
+
+.brands__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .footer {

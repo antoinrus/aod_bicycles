@@ -130,9 +130,6 @@ body {
 }
 .page {
 	grid-area: main;
-
-	// position: relative;
-	// z-index: 1;
 }
 //========================================================================================================================================================
 
@@ -147,7 +144,7 @@ body {
 //========================================================================================================================================================
 .generation {
 	background-color: #f7f7f7;
-	margin: 118px 0px 140px 0px;
+	padding: 118px 0px 140px 0px;
 	//.generation__body
 	&__body {
 		max-width: 1080px;
@@ -162,6 +159,49 @@ body {
 		margin: 0px 0px 35px 0px;
 	}
 	// .generation__text
+	&__text {
+	}
+}
+
+//========================================================================================================================================================
+.brands {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(3, 1fr);
+	// .brands__img
+	&__img {
+		position: relative;
+		padding: 0px 0px 100% 0px;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		// .brands__img_b
+		&_b {
+		}
+		// .brands__img_s
+		&_s {
+		}
+		// .brands__img_m
+		&_m {
+		}
+	}
+	// .brands__description
+	&__description {
+	}
+	// .brands__icon
+	&__icon {
+	}
+	// .brands__title
+	&__title {
+	}
+	// .brands__text
 	&__text {
 	}
 }
