@@ -199,21 +199,22 @@ body {
   line-height: 34px;
 }
 
-.brands__row {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-flow: column;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: (1fr)[3];
-      grid-template-rows: repeat(3, 1fr);
-  position: relative;
-}
-
-@media (max-width: 1080px) {
+@media (min-width: 768px) {
   .brands__row {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: column;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .brands__row {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -222,22 +223,28 @@ body {
 }
 
 .brands__item_b {
-  -ms-grid-column: span 2;
-      grid-column-start: span 2;
   -ms-grid-row: span 3;
       grid-row-start: span 3;
 }
 
-@media (max-width: 1080px) {
+.brands__item_b .brands__img {
+  padding: 0px 0px 70% 0px;
+}
+
+@media (min-width: 1080px) {
   .brands__item_b {
-    -ms-grid-column: span 1;
-        grid-column-start: span 1;
+    -ms-grid-column: span 2;
+        grid-column-start: span 2;
   }
 }
 
 .brands__item_m {
   -ms-grid-row: span 3;
       grid-row-start: span 3;
+}
+
+.brands__item_m .brands__img {
+  padding: 0px 0px 100% 0px;
 }
 
 .brands__logo {
@@ -263,7 +270,13 @@ body {
 
 .brands__img {
   width: 100%;
-  height: 100%;
+  padding: 0px 0px 37.51% 0px;
+}
+
+@media (min-width: 768px) {
+  .brands__img {
+    height: 100%;
+  }
 }
 
 .brands__content {
@@ -331,6 +344,7 @@ body {
 .twitter-slider {
   padding: 125px 0px 70px 0px;
   max-width: 100%;
+  background-color: #f7f7f7;
 }
 
 .twitter-slider__wrapper {
@@ -338,7 +352,8 @@ body {
 }
 
 .twitter-slider__container {
-  max-width: 1080px;
+  max-width: 1040px;
+  padding: 0px 20px;
   margin: 0 auto;
 }
 
@@ -382,6 +397,147 @@ body {
 
 .twitter-slider .swiper-pagination-bullet-active {
   background-color: #a9afb3;
+}
+
+.shop__content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[2];
+  -ms-grid-columns: (1fr)[6];
+      grid-template: repeat(2, 1fr)/repeat(6, 1fr);
+  grid-auto-flow: column;
+}
+
+.shop__item {
+  position: relative;
+}
+
+.shop__item_bh {
+  -ms-grid-column: span 2;
+      grid-column-start: span 2;
+}
+
+.shop__item_bh .shop__image {
+  padding: 0px 0px 50% 0px;
+}
+
+.shop__item_bv {
+  -ms-grid-row: span 2;
+      grid-row-start: span 2;
+}
+
+.shop__logo {
+  opacity: 0;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(100, 194, 158, 0.5);
+  position: absolute;
+  z-index: 2;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.shop__logo:hover {
+  opacity: 1;
+}
+
+.shop__logo img {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.shop__logo span {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+}
+
+.shop__image {
+  height: 100%;
+  width: 100%;
+  padding: 0px 0px 100% 0px;
+}
+
+.shop__bottom {
+  padding: 75px 0px;
+  background-color: #282f35;
+}
+
+.shop__button {
+  display: inline-block;
+  height: 50px;
+  font-size: 14px;
+  line-height: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 0px 57px;
+}
+
+.shop__button:hover {
+  color: #000000;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.subscribe {
+  padding: 110px 0px;
+}
+
+.subscribe__logo {
+  margin: 0px 0px 35px 0px;
+}
+
+.subscribe__text {
+  font-size: 24px;
+  line-height: 34px;
+  font-style: italic;
+  margin: 0px 0px 35px 0px;
+}
+
+.subscribe__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.subscribe__input {
+  width: 400px;
+  height: 69px;
+  background-color: #ffffff;
+  border: 1px solid #d3d7d9;
+  padding: 28px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: italic;
+  color: #929292;
+  margin: 0px 8px 0px 0px;
+}
+
+.subscribe__button {
+  height: 69px;
+  background-color: #64c29e;
+  color: #fff;
+  padding: 0px 45px;
+  font-size: 24px;
+  line-height: 69px;
+  font-weight: 300;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .footer {

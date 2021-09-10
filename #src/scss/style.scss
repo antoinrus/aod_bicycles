@@ -183,14 +183,15 @@ body {
 
 	//brands__row
 	&__row {
-		display: grid;
-		grid-auto-flow: column;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(3, 1fr);
-		position: relative;
-
-		@media (max-width: 1080px) {
+		@media (min-width: 768px) {
+			display: grid;
+			grid-auto-flow: column;
 			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+
+		@media (min-width: 1080px) {
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 	// brands__item
@@ -198,15 +199,20 @@ body {
 		position: relative;
 		// .brands__item_b
 		&_b {
-			grid-column-start: span 2;
 			grid-row-start: span 3;
-			@media (max-width: 1080px) {
-				grid-column-start: span 1;
+			.brands__img {
+				padding: 0px 0px 70% 0px;
+			}
+			@media (min-width: 1080px) {
+				grid-column-start: span 2;
 			}
 		}
 		// .brands__item_m
 		&_m {
 			grid-row-start: span 3;
+			.brands__img {
+				padding: 0px 0px 100% 0px;
+			}
 		}
 	}
 	//brands__logo
@@ -229,7 +235,10 @@ body {
 	// .brands__img
 	&__img {
 		width: 100%;
-		height: 100%;
+		padding: 0px 0px 37.51% 0px;
+		@media (min-width: 768px) {
+			height: 100%;
+		}
 	}
 	// .brands__content
 	&__content {
@@ -290,13 +299,15 @@ body {
 .twitter-slider {
 	padding: 125px 0px 70px 0px;
 	max-width: 100%;
+	background-color: #f7f7f7;
 	// .twitter-slider__wrapper
 	&__wrapper {
 		max-width: 100%;
 	}
 	//.twitter-slider__container
 	&__container {
-		max-width: 1080px;
+		max-width: 1040px;
+		padding: 0px 20px;
 		margin: 0 auto;
 	}
 	// .twitter-slider__slide
@@ -343,11 +354,135 @@ body {
 		background-color: #a9afb3;
 	}
 }
-.swiper-container {
+
+//========================================================================================================================================================
+.shop {
+	// .shop__content
+	&__content {
+		display: grid;
+		grid-template: repeat(2, 1fr) / repeat(6, 1fr);
+		grid-auto-flow: column;
+	}
+	// .shop__item
+	&__item {
+		position: relative;
+		// .shop__item_bh
+		&_bh {
+			grid-column-start: span 2;
+			.shop__image {
+				padding: 0px 0px 50% 0px;
+			}
+		}
+		// .shop__item_bv
+		&_bv {
+			grid-row-start: span 2;
+		}
+	}
+	// .shop__logo
+	&__logo {
+		opacity: 0;
+		display: grid;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: rgba(100, 194, 158, 0.5);
+		position: absolute;
+		z-index: 2;
+		transition: all 0.3s ease 0s;
+		&:hover {
+			opacity: 1;
+		}
+		img {
+			margin: auto;
+			margin-bottom: 10px;
+		}
+		span {
+			font-size: 14px;
+			line-height: 1.2;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			color: #ffffff;
+		}
+	}
+	// .shop__image
+	&__image {
+		height: 100%;
+		width: 100%;
+		padding: 0px 0px 100% 0px;
+	}
+	// .shop__bottom
+	&__bottom {
+		padding: 75px 0px;
+		background-color: #282f35;
+	}
+	// .shop__button
+	&__button {
+		display: inline-block;
+		height: 50px;
+		font-size: 14px;
+		line-height: 50px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: #ffffff;
+		border: 1px solid #ffffff;
+		padding: 0px 57px;
+
+		&:hover {
+			color: #000000;
+			background-color: #fff;
+			transition: all 0.3s ease 0s;
+		}
+	}
 }
-.swiper-wrapper {
-}
-.swiper-slide {
+
+//========================================================================================================================================================
+.subscribe {
+	padding: 110px 0px;
+	// .subscribe__logo
+	&__logo {
+		margin: 0px 0px 35px 0px;
+	}
+	// .subscribe__text
+	&__text {
+		font-size: 24px;
+		line-height: 34px;
+		font-style: italic;
+		margin: 0px 0px 35px 0px;
+	}
+	// .subscribe__form
+	&__form {
+		display: flex;
+		justify-content: center;
+	}
+	// .subscribe__input
+	&__input {
+		width: 400px;
+		height: 69px;
+		background-color: #ffffff;
+		border: 1px solid #d3d7d9;
+		padding: 28px;
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 400;
+		font-style: italic;
+		color: #929292;
+		margin: 0px 8px 0px 0px;
+	}
+	// .subscribe__button
+	&__button {
+		height: 69px;
+		background-color: #64c29e;
+		color: #fff;
+		padding: 0px 45px;
+		font-size: 24px;
+		line-height: 69px;
+		font-weight: 300;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
 }
 
 //========================================================================================================================================================
