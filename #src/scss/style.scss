@@ -21,6 +21,11 @@ body {
 	color: #848789;
 	font-family: "Lato", Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+body {
+	&.lock {
+		overflow: hidden;
+	}
+}
 //========================================================================================================================================================
 .visually-hidden {
 	position: absolute;
@@ -76,62 +81,172 @@ body {
 	width: 100%;
 	z-index: 50;
 	left: 0;
-	top: 65px;
+	top: 0;
+
+	@media (min-width: 768px) {
+		display: block;
+		top: 65px;
+	}
 	// .header__menu
 	&__menu {
 	}
 	// .header__logo
 	&__logo {
-		position: relative;
-		top: -55px;
+		position: absolute;
+		top: 30px;
 		left: 50%;
+		transform: translateX(-47px);
 		width: 94px;
 		height: 85px;
-		transform: translateX(-47px);
+
 		img {
 			width: 100%;
+		}
+		@media (min-width: 768px) {
+			top: -35px;
 		}
 	}
 }
 .menu {
+	width: 100%;
+
 	// .menu__icon
 	&__icon {
+		position: absolute;
+		width: 30px;
+		height: 18px;
+		top: 50px;
+		right: 20px;
+		cursor: pointer;
+		z-index: 5;
+
+		span,
+		&::before,
+		&::after {
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			left: 0;
+			background-color: #353738;
+			transition: all 0.3s ease 0s;
+		}
+		span {
+			top: calc(50% - 1px);
+			transform: scale(1);
+		}
+		&::before {
+			content: "";
+			top: 0;
+		}
+		&::after {
+			content: "";
+			bottom: 0;
+		}
+		&.active {
+			span,
+			&::before,
+			&::after {
+				background-color: #fff;
+			}
+			span {
+				transform: scale(0);
+			}
+			&::before {
+				transform: translate(0, 8px) rotate(45deg);
+			}
+			&::after {
+				transform: translate(0, -8px) rotate(-45deg);
+			}
+		}
+		@media (min-width: 768px) {
+			display: none;
+		}
 	}
 	// .menu__body
 	&__body {
+		width: 100%;
+		height: 100%;
+		transform: translateY(-100%);
+		transition: all 0.5s ease 0s;
+		position: fixed;
+		overflow: auto;
+		padding: 160px 0px 0px 0px;
+		background-color: rgba(77, 73, 89, 0.8);
+
+		display: grid;
+		justify-content: center;
+
+		&.active {
+			transform: translateY(0);
+		}
+		@media (min-width: 768px) {
+			height: auto;
+			position: relative;
+			padding: 0;
+			transform: translateY(0);
+			background-color: transparent;
+			transition: none;
+		}
 	}
 	// .menu__list
 	&__list {
-		display: grid;
-		grid-auto-flow: column;
-		justify-content: center;
-
 		li {
-			padding: 0px 36px;
 			position: relative;
-
-			&:nth-child(1)::after,
-			&:nth-child(3)::after {
+			margin: 0px 0px 30px 0px;
+			padding: 0px 0px 30px 0px;
+			&::after {
 				content: "";
 				position: absolute;
-				bottom: 6px;
-				right: 0;
-				width: 2px;
-				height: 2px;
-				background-color: #4d4959;
+				bottom: 0;
+				right: 50%;
+				width: 6px;
+				height: 6px;
+				margin: 0px -3px 0px 0px;
+				background-color: #fff;
 			}
-			&:nth-child(2) {
-				padding: 0px 110px 0px 36px;
+			&:last-child::after {
+				display: none;
 			}
-			&:nth-child(3) {
-				padding: 0px 36px 0px 110px;
+		}
+		@media (min-width: 768px) {
+			display: grid;
+			justify-content: center;
+			grid-auto-flow: column;
+			transform: translate(0);
+
+			li {
+				padding: 0px 36px;
+				position: relative;
+				li::after {
+					margin: 0;
+				}
+
+				&:nth-child(1)::after,
+				&:nth-child(3)::after {
+					content: "";
+					position: absolute;
+					bottom: 6px;
+					right: 0;
+					width: 2px;
+					height: 2px;
+					background-color: #4d4959;
+				}
+				&:nth-child(2) {
+					padding: 0px 110px 0px 36px;
+					&::after {
+						display: none;
+					}
+				}
+				&:nth-child(3) {
+					padding: 0px 36px 0px 110px;
+				}
 			}
 		}
 	}
 	// .menu__link
 	&__link {
-		color: #4d4959;
-		font-size: 13px;
+		color: #ffffff;
+		font-size: 30px;
 		text-transform: uppercase;
 		font-weight: 700;
 		letter-spacing: 2.6px;
@@ -139,8 +254,13 @@ body {
 		&:hover {
 			color: #69c3a1;
 		}
+		@media (min-width: 768px) {
+			color: #4d4959;
+			font-size: 13px;
+		}
 	}
 }
+//========================================================================================================================================================
 .page {
 	grid-area: main;
 	min-width: 0;
@@ -371,8 +491,15 @@ body {
 	// .shop__content
 	&__content {
 		display: grid;
-		grid-auto-flow: column;
-		grid-template: repeat(2, 1fr) / repeat(6, 1fr);
+		grid-auto-flow: dense;
+
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media (min-width: 1080px) {
+			grid-auto-flow: column;
+			grid-template: repeat(2, 1fr) / repeat(6, 1fr);
+		}
 	}
 	// .shop__item
 	&__item {
@@ -425,8 +552,11 @@ body {
 	}
 	// .shop__bottom
 	&__bottom {
-		padding: 75px 0px;
+		padding: 50px 0px;
 		background-color: #282f35;
+		@media (min-width: 768px) {
+			padding: 75px 0px;
+		}
 	}
 	// .shop__button
 	&__button {
@@ -439,19 +569,25 @@ body {
 		letter-spacing: 0.2em;
 		color: #ffffff;
 		border: 1px solid #ffffff;
-		padding: 0px 57px;
+		padding: 0px 30px;
 
 		&:hover {
 			color: #000000;
 			background-color: #fff;
 			transition: all 0.3s ease 0s;
 		}
+		@media (min-width: 768px) {
+			padding: 0px 57px;
+		}
 	}
 }
 
 //========================================================================================================================================================
 .subscribe {
-	padding: 110px 0px;
+	padding: 70px 20px;
+	@media (min-width: 768px) {
+		padding: 110px 0px;
+	}
 	// .subscribe__logo
 	&__logo {
 		margin: 0px 0px 35px 0px;
@@ -465,12 +601,14 @@ body {
 	}
 	// .subscribe__form
 	&__form {
-		display: flex;
-		justify-content: center;
+		@media (min-width: 500px) {
+			display: flex;
+			justify-content: center;
+		}
 	}
 	// .subscribe__input
 	&__input {
-		width: 400px;
+		width: 100%;
 		height: 69px;
 		background-color: #ffffff;
 		border: 1px solid #d3d7d9;
@@ -480,10 +618,15 @@ body {
 		font-weight: 400;
 		font-style: italic;
 		color: #929292;
-		margin: 0px 8px 0px 0px;
+		margin: 0px 0px 8px 0px;
+		@media (min-width: 500px) {
+			width: 400px;
+			margin: 0px 8px 0px 0px;
+		}
 	}
 	// .subscribe__button
 	&__button {
+		width: 100%;
 		height: 69px;
 		background-color: #64c29e;
 		color: #fff;
@@ -493,6 +636,9 @@ body {
 		font-weight: 300;
 		text-transform: uppercase;
 		cursor: pointer;
+		@media (min-width: 500px) {
+			width: auto;
+		}
 		&:hover {
 			background-color: #178c6f;
 		}

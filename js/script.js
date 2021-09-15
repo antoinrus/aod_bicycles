@@ -1,3 +1,16 @@
+
+let iconBurger = document.querySelector('.menu__icon');
+let menuBurger = document.querySelector('.menu__body');
+
+iconBurger.addEventListener("click", function () {
+	iconBurger.classList.toggle('active');
+	menuBurger.classList.toggle('active');
+	document.body.classList.toggle('lock');
+
+})
+
+//========================================================================================================================================================
+
 function ibg() {
 
 	let ibg = document.querySelectorAll(".ibg");
